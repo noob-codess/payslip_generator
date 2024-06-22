@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payslip Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Payslip Generator</h1>
+        
+        <div class="info">
+            <h2>About the App</h2>
+            <p>This app generates a payslip based on the provided information. It calculates the monthly salary, professional tax, health insurance, and net salary. The app also includes details about earnings and deductions.</p>
+            <h2>Calculations</h2>
+            <ul>
+                <li><strong>Monthly Salary:</strong> Annual income divided by 12.</li>
+                <li><strong>Professional Tax:</strong> Calculated based on the current tax slab.</li>
+                <li><strong>Health Insurance:</strong> 2% of the monthly salary.</li>
+                <li><strong>Net Salary:</strong> Monthly salary minus professional tax and health insurance.</li>
+                <li><strong>Basic Salary:</strong> 50% of the monthly salary.</li>
+                <li><strong>House Rent Allowance (HRA):</strong> 30% of the monthly salary (capped at ₹5000).</li>
+                <li><strong>Adhoc Allowance:</strong> 15% of the monthly salary.</li>
+                <li><strong>Miscellaneous Allowance:</strong> 5% of the monthly salary.</li>
+                <li><strong>Gross Earnings:</strong> Sum of basic salary, HRA, adhoc allowance, and miscellaneous allowance.</li>
+            </ul>
+        </div>
+        
+        <div class="form-container">
+            <h1>Payslip Generator Form</h1>
+            <form action="/generate_payslip" method="post">
+                <div class="form-group">
+                    <label for="org_name">Organization Name:</label>
+                    <input type="text" id="org_name" name="org_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="gstin">GSTIN:</label>
+                    <input type="text" id="gstin" name="gstin" required>
+                </div>
+                <div class="form-group">
+                    <label for="employee_name">Employee Name:</label>
+                    <input type="text" id="employee_name" name="employee_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="employee_id">Employee ID:</label>
+                    <input type="text" id="employee_id" name="employee_id" required>
+                </div>
+                <div class="form-group">
+                    <label for="department">Department:</label>
+                    <input type="text" id="department" name="department" required>
+                </div>
+                <div class="form-group">
+                    <label for="designation">Designation:</label>
+                    <input type="text" id="designation" name="designation" required>
+                </div>
+                <div class="form-group">
+                    <label for="bank_name">Bank Name:</label>
+                    <input type="text" id="bank_name" name="bank_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="bank_account_number">Bank Account Number:</label>
+                    <input type="text" id="bank_account_number" name="bank_account_number" required>
+                </div>
+                <div class="form-group">
+                    <label for="annual_income">Annual Income:</label>
+                    <input type="number" id="annual_income" name="annual_income" required>
+                </div>
+                <div class="form-group">
+                    <label for="month">Month:</label>
+                    <select id="month" name="month" required>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="year">Year:</label>
+                    <input type="number" id="year" name="year" required>
+                </div>
+                <div class="form-group">
+                    <label for="leaves_taken">Leaves Taken:</label>
+                    <input type="number" id="leaves_taken" name="leaves_taken" required>
+                </div>
+                <div class="form-group">
+                    <label for="doj_month">Date of Joining Month:</label>
+                    <select id="doj_month" name="doj_month" required>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="doj_year">Date of Joining Year:</label>
+                    <input type="number" id="doj_year" name="doj_year" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Generate Payslip">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
